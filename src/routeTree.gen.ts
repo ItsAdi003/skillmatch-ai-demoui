@@ -10,33 +10,242 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CandidateRouteImport } from './routes/candidate'
+import { Route as EmployerRouteImport } from './routes/employer'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as CandidateIndexRouteImport } from './routes/candidate.index'
+import { Route as CandidateAnalysisRouteImport } from './routes/candidate.analysis'
+import { Route as CandidateApplicationsRouteImport } from './routes/candidate.applications'
+import { Route as CandidateInternshipsRouteImport } from './routes/candidate.internships'
+import { Route as CandidateJobsRouteImport } from './routes/candidate.jobs'
+import { Route as CandidateRoadmapRouteImport } from './routes/candidate.roadmap'
+import { Route as CandidateSkillGapRouteImport } from './routes/candidate.skill-gap'
+import { Route as CandidateUploadRouteImport } from './routes/candidate.upload'
+import { Route as EmployerIndexRouteImport } from './routes/employer.index'
+import { Route as EmployerCreateJobRouteImport } from './routes/employer.create-job'
+import { Route as EmployerJobsRouteImport } from './routes/employer.jobs'
+import { Route as EmployerCandidatesIndexRouteImport } from './routes/employer.candidates.index'
+import { Route as EmployerCandidatesCandidateIdRouteImport } from './routes/employer.candidates.$candidateId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CandidateRoute = CandidateRouteImport.update({
+  id: '/candidate',
+  path: '/candidate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmployerRoute = EmployerRouteImport.update({
+  id: '/employer',
+  path: '/employer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CandidateIndexRoute = CandidateIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateAnalysisRoute = CandidateAnalysisRouteImport.update({
+  id: '/analysis',
+  path: '/analysis',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateApplicationsRoute = CandidateApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateInternshipsRoute = CandidateInternshipsRouteImport.update({
+  id: '/internships',
+  path: '/internships',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateJobsRoute = CandidateJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateRoadmapRoute = CandidateRoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateSkillGapRoute = CandidateSkillGapRouteImport.update({
+  id: '/skill-gap',
+  path: '/skill-gap',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const CandidateUploadRoute = CandidateUploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => CandidateRoute,
+} as any)
+const EmployerIndexRoute = EmployerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EmployerRoute,
+} as any)
+const EmployerCreateJobRoute = EmployerCreateJobRouteImport.update({
+  id: '/create-job',
+  path: '/create-job',
+  getParentRoute: () => EmployerRoute,
+} as any)
+const EmployerJobsRoute = EmployerJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => EmployerRoute,
+} as any)
+const EmployerCandidatesIndexRoute = EmployerCandidatesIndexRouteImport.update({
+  id: '/candidates/',
+  path: '/candidates/',
+  getParentRoute: () => EmployerRoute,
+} as any)
+const EmployerCandidatesCandidateIdRoute =
+  EmployerCandidatesCandidateIdRouteImport.update({
+    id: '/candidates/$candidateId',
+    path: '/candidates/$candidateId',
+    getParentRoute: () => EmployerRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/candidate': typeof CandidateRouteWithChildren
+  '/employer': typeof EmployerRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/candidate/analysis': typeof CandidateAnalysisRoute
+  '/candidate/applications': typeof CandidateApplicationsRoute
+  '/candidate/internships': typeof CandidateInternshipsRoute
+  '/candidate/jobs': typeof CandidateJobsRoute
+  '/candidate/roadmap': typeof CandidateRoadmapRoute
+  '/candidate/skill-gap': typeof CandidateSkillGapRoute
+  '/candidate/upload': typeof CandidateUploadRoute
+  '/employer/create-job': typeof EmployerCreateJobRoute
+  '/employer/jobs': typeof EmployerJobsRoute
+  '/candidate/': typeof CandidateIndexRoute
+  '/employer/': typeof EmployerIndexRoute
+  '/employer/candidates/$candidateId': typeof EmployerCandidatesCandidateIdRoute
+  '/employer/candidates/': typeof EmployerCandidatesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/candidate/analysis': typeof CandidateAnalysisRoute
+  '/candidate/applications': typeof CandidateApplicationsRoute
+  '/candidate/internships': typeof CandidateInternshipsRoute
+  '/candidate/jobs': typeof CandidateJobsRoute
+  '/candidate/roadmap': typeof CandidateRoadmapRoute
+  '/candidate/skill-gap': typeof CandidateSkillGapRoute
+  '/candidate/upload': typeof CandidateUploadRoute
+  '/employer/create-job': typeof EmployerCreateJobRoute
+  '/employer/jobs': typeof EmployerJobsRoute
+  '/candidate': typeof CandidateIndexRoute
+  '/employer': typeof EmployerIndexRoute
+  '/employer/candidates/$candidateId': typeof EmployerCandidatesCandidateIdRoute
+  '/employer/candidates': typeof EmployerCandidatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/candidate': typeof CandidateRouteWithChildren
+  '/employer': typeof EmployerRouteWithChildren
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/candidate/analysis': typeof CandidateAnalysisRoute
+  '/candidate/applications': typeof CandidateApplicationsRoute
+  '/candidate/internships': typeof CandidateInternshipsRoute
+  '/candidate/jobs': typeof CandidateJobsRoute
+  '/candidate/roadmap': typeof CandidateRoadmapRoute
+  '/candidate/skill-gap': typeof CandidateSkillGapRoute
+  '/candidate/upload': typeof CandidateUploadRoute
+  '/employer/create-job': typeof EmployerCreateJobRoute
+  '/employer/jobs': typeof EmployerJobsRoute
+  '/candidate/': typeof CandidateIndexRoute
+  '/employer/': typeof EmployerIndexRoute
+  '/employer/candidates/$candidateId': typeof EmployerCandidatesCandidateIdRoute
+  '/employer/candidates/': typeof EmployerCandidatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/candidate'
+    | '/employer'
+    | '/login'
+    | '/register'
+    | '/candidate/analysis'
+    | '/candidate/applications'
+    | '/candidate/internships'
+    | '/candidate/jobs'
+    | '/candidate/roadmap'
+    | '/candidate/skill-gap'
+    | '/candidate/upload'
+    | '/employer/create-job'
+    | '/employer/jobs'
+    | '/candidate/'
+    | '/employer/'
+    | '/employer/candidates/$candidateId'
+    | '/employer/candidates/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/candidate/analysis'
+    | '/candidate/applications'
+    | '/candidate/internships'
+    | '/candidate/jobs'
+    | '/candidate/roadmap'
+    | '/candidate/skill-gap'
+    | '/candidate/upload'
+    | '/employer/create-job'
+    | '/employer/jobs'
+    | '/candidate'
+    | '/employer'
+    | '/employer/candidates/$candidateId'
+    | '/employer/candidates'
+  id:
+    | '__root__'
+    | '/'
+    | '/candidate'
+    | '/employer'
+    | '/login'
+    | '/register'
+    | '/candidate/analysis'
+    | '/candidate/applications'
+    | '/candidate/internships'
+    | '/candidate/jobs'
+    | '/candidate/roadmap'
+    | '/candidate/skill-gap'
+    | '/candidate/upload'
+    | '/employer/create-job'
+    | '/employer/jobs'
+    | '/candidate/'
+    | '/employer/'
+    | '/employer/candidates/$candidateId'
+    | '/employer/candidates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CandidateRoute: typeof CandidateRouteWithChildren
+  EmployerRoute: typeof EmployerRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +257,181 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/candidate': {
+      id: '/candidate'
+      path: '/candidate'
+      fullPath: '/candidate'
+      preLoaderRoute: typeof CandidateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/employer': {
+      id: '/employer'
+      path: '/employer'
+      fullPath: '/employer'
+      preLoaderRoute: typeof EmployerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/candidate/': {
+      id: '/candidate/'
+      path: '/'
+      fullPath: '/candidate/'
+      preLoaderRoute: typeof CandidateIndexRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/analysis': {
+      id: '/candidate/analysis'
+      path: '/analysis'
+      fullPath: '/candidate/analysis'
+      preLoaderRoute: typeof CandidateAnalysisRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/applications': {
+      id: '/candidate/applications'
+      path: '/applications'
+      fullPath: '/candidate/applications'
+      preLoaderRoute: typeof CandidateApplicationsRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/internships': {
+      id: '/candidate/internships'
+      path: '/internships'
+      fullPath: '/candidate/internships'
+      preLoaderRoute: typeof CandidateInternshipsRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/jobs': {
+      id: '/candidate/jobs'
+      path: '/jobs'
+      fullPath: '/candidate/jobs'
+      preLoaderRoute: typeof CandidateJobsRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/roadmap': {
+      id: '/candidate/roadmap'
+      path: '/roadmap'
+      fullPath: '/candidate/roadmap'
+      preLoaderRoute: typeof CandidateRoadmapRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/skill-gap': {
+      id: '/candidate/skill-gap'
+      path: '/skill-gap'
+      fullPath: '/candidate/skill-gap'
+      preLoaderRoute: typeof CandidateSkillGapRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/candidate/upload': {
+      id: '/candidate/upload'
+      path: '/upload'
+      fullPath: '/candidate/upload'
+      preLoaderRoute: typeof CandidateUploadRouteImport
+      parentRoute: typeof CandidateRoute
+    }
+    '/employer/': {
+      id: '/employer/'
+      path: '/'
+      fullPath: '/employer/'
+      preLoaderRoute: typeof EmployerIndexRouteImport
+      parentRoute: typeof EmployerRoute
+    }
+    '/employer/create-job': {
+      id: '/employer/create-job'
+      path: '/create-job'
+      fullPath: '/employer/create-job'
+      preLoaderRoute: typeof EmployerCreateJobRouteImport
+      parentRoute: typeof EmployerRoute
+    }
+    '/employer/jobs': {
+      id: '/employer/jobs'
+      path: '/jobs'
+      fullPath: '/employer/jobs'
+      preLoaderRoute: typeof EmployerJobsRouteImport
+      parentRoute: typeof EmployerRoute
+    }
+    '/employer/candidates/': {
+      id: '/employer/candidates/'
+      path: '/candidates'
+      fullPath: '/employer/candidates/'
+      preLoaderRoute: typeof EmployerCandidatesIndexRouteImport
+      parentRoute: typeof EmployerRoute
+    }
+    '/employer/candidates/$candidateId': {
+      id: '/employer/candidates/$candidateId'
+      path: '/candidates/$candidateId'
+      fullPath: '/employer/candidates/$candidateId'
+      preLoaderRoute: typeof EmployerCandidatesCandidateIdRouteImport
+      parentRoute: typeof EmployerRoute
+    }
   }
 }
 
+interface CandidateRouteChildren {
+  CandidateAnalysisRoute: typeof CandidateAnalysisRoute
+  CandidateApplicationsRoute: typeof CandidateApplicationsRoute
+  CandidateInternshipsRoute: typeof CandidateInternshipsRoute
+  CandidateJobsRoute: typeof CandidateJobsRoute
+  CandidateRoadmapRoute: typeof CandidateRoadmapRoute
+  CandidateSkillGapRoute: typeof CandidateSkillGapRoute
+  CandidateUploadRoute: typeof CandidateUploadRoute
+  CandidateIndexRoute: typeof CandidateIndexRoute
+}
+
+const CandidateRouteChildren: CandidateRouteChildren = {
+  CandidateAnalysisRoute: CandidateAnalysisRoute,
+  CandidateApplicationsRoute: CandidateApplicationsRoute,
+  CandidateInternshipsRoute: CandidateInternshipsRoute,
+  CandidateJobsRoute: CandidateJobsRoute,
+  CandidateRoadmapRoute: CandidateRoadmapRoute,
+  CandidateSkillGapRoute: CandidateSkillGapRoute,
+  CandidateUploadRoute: CandidateUploadRoute,
+  CandidateIndexRoute: CandidateIndexRoute,
+}
+
+const CandidateRouteWithChildren = CandidateRoute._addFileChildren(
+  CandidateRouteChildren,
+)
+
+interface EmployerRouteChildren {
+  EmployerCreateJobRoute: typeof EmployerCreateJobRoute
+  EmployerJobsRoute: typeof EmployerJobsRoute
+  EmployerIndexRoute: typeof EmployerIndexRoute
+  EmployerCandidatesCandidateIdRoute: typeof EmployerCandidatesCandidateIdRoute
+  EmployerCandidatesIndexRoute: typeof EmployerCandidatesIndexRoute
+}
+
+const EmployerRouteChildren: EmployerRouteChildren = {
+  EmployerCreateJobRoute: EmployerCreateJobRoute,
+  EmployerJobsRoute: EmployerJobsRoute,
+  EmployerIndexRoute: EmployerIndexRoute,
+  EmployerCandidatesCandidateIdRoute: EmployerCandidatesCandidateIdRoute,
+  EmployerCandidatesIndexRoute: EmployerCandidatesIndexRoute,
+}
+
+const EmployerRouteWithChildren = EmployerRoute._addFileChildren(
+  EmployerRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CandidateRoute: CandidateRouteWithChildren,
+  EmployerRoute: EmployerRouteWithChildren,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
