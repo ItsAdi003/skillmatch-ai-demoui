@@ -43,7 +43,8 @@ export const Route = createFileRoute("/employer/candidates/$candidateId")({
 });
 
 function CandidateProfile() {
-  const { candidate: c } = Route.useLoaderData();
+  const { candidateId } = Route.useParams();
+  const c: Candidate = candidates.find((x) => x.id === candidateId) ?? candidates[0]!;
 
   return (
     <>
