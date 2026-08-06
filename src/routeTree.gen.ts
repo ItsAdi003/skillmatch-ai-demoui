@@ -16,6 +16,10 @@ import { Route as EmployerRouteImport } from './routes/employer'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
+import { Route as AdminCandidatesRouteImport } from './routes/admin.candidates'
+import { Route as AdminEmployersRouteImport } from './routes/admin.employers'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as CandidateIndexRouteImport } from './routes/candidate.index'
 import { Route as CandidateAnalysisRouteImport } from './routes/candidate.analysis'
@@ -64,6 +68,26 @@ const RegisterRoute = RegisterRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCandidatesRoute = AdminCandidatesRouteImport.update({
+  id: '/candidates',
+  path: '/candidates',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEmployersRoute = AdminEmployersRouteImport.update({
+  id: '/employers',
+  path: '/employers',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
@@ -145,6 +169,10 @@ export interface FileRoutesByFullPath {
   '/employer': typeof EmployerRouteWithChildren
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/candidates': typeof AdminCandidatesRoute
+  '/admin/employers': typeof AdminEmployersRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/users': typeof AdminUsersRoute
   '/candidate/analysis': typeof CandidateAnalysisRoute
   '/candidate/applications': typeof CandidateApplicationsRoute
@@ -165,6 +193,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/candidates': typeof AdminCandidatesRoute
+  '/admin/employers': typeof AdminEmployersRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/users': typeof AdminUsersRoute
   '/candidate/analysis': typeof CandidateAnalysisRoute
   '/candidate/applications': typeof CandidateApplicationsRoute
@@ -189,6 +221,10 @@ export interface FileRoutesById {
   '/employer': typeof EmployerRouteWithChildren
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
+  '/admin/candidates': typeof AdminCandidatesRoute
+  '/admin/employers': typeof AdminEmployersRoute
+  '/admin/reports': typeof AdminReportsRoute
   '/admin/users': typeof AdminUsersRoute
   '/candidate/analysis': typeof CandidateAnalysisRoute
   '/candidate/applications': typeof CandidateApplicationsRoute
@@ -214,6 +250,10 @@ export interface FileRouteTypes {
     | '/employer'
     | '/login'
     | '/register'
+    | '/admin/analytics'
+    | '/admin/candidates'
+    | '/admin/employers'
+    | '/admin/reports'
     | '/admin/users'
     | '/candidate/analysis'
     | '/candidate/applications'
@@ -234,6 +274,10 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/register'
+    | '/admin/analytics'
+    | '/admin/candidates'
+    | '/admin/employers'
+    | '/admin/reports'
     | '/admin/users'
     | '/candidate/analysis'
     | '/candidate/applications'
@@ -257,6 +301,10 @@ export interface FileRouteTypes {
     | '/employer'
     | '/login'
     | '/register'
+    | '/admin/analytics'
+    | '/admin/candidates'
+    | '/admin/employers'
+    | '/admin/reports'
     | '/admin/users'
     | '/candidate/analysis'
     | '/candidate/applications'
@@ -332,6 +380,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/candidates': {
+      id: '/admin/candidates'
+      path: '/candidates'
+      fullPath: '/admin/candidates'
+      preLoaderRoute: typeof AdminCandidatesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/employers': {
+      id: '/admin/employers'
+      path: '/employers'
+      fullPath: '/admin/employers'
+      preLoaderRoute: typeof AdminEmployersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/users': {
@@ -436,11 +512,19 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
+  AdminCandidatesRoute: typeof AdminCandidatesRoute
+  AdminEmployersRoute: typeof AdminEmployersRoute
+  AdminReportsRoute: typeof AdminReportsRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
+  AdminCandidatesRoute: AdminCandidatesRoute,
+  AdminEmployersRoute: AdminEmployersRoute,
+  AdminReportsRoute: AdminReportsRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
@@ -504,3 +588,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
