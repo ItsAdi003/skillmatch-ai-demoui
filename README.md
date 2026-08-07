@@ -4,8 +4,6 @@ A production-ready AI Resume Screening, Job Recommendation, Internship Recommend
 
 **Live Demo:** [skillmatch-ai-demoui.lovable.app](https://skillmatch-ai-demoui.lovable.app)
 
----
-
 ## What it does
 
 SkillMatch AI helps candidates, employers and admins make better hiring decisions using AI-powered matching and skill-gap analysis.
@@ -13,8 +11,6 @@ SkillMatch AI helps candidates, employers and admins make better hiring decision
 - **Candidates** upload a resume, get an AI score, see ranked jobs and internships, identify skill gaps, and follow a weekly learning roadmap.
 - **Employers** post jobs, view AI-ranked candidates, and see an AI-organized resume view for every applicant.
 - **Admins** monitor platform activity, verify users and employers, and review reported accounts.
-
----
 
 ## Features
 
@@ -47,9 +43,6 @@ SkillMatch AI helps candidates, employers and admins make better hiring decision
 - **Charts:** Recharts
 - **Icons:** Lucide React
 - **Build Tool:** Vite 7
-- **Generated with:** [Lovable](https://lovable.dev)
-
----
 
 ## Project Structure
 
@@ -60,8 +53,6 @@ src/
   lib/              # Mock data, theme, utilities
   styles.css        # Global design tokens and animations
 ```
-
----
 
 ## Getting Started
 
@@ -75,8 +66,6 @@ npm run dev
 ```
 
 The app will open at `http://localhost:8080`.
-
----
 
 ## Notes
 
