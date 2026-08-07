@@ -71,8 +71,3 @@ The app will open at `http://localhost:8080`.
 
 - This project uses mock/dummy data only. No real backend or database is required to run it locally.
 - The live demo is deployed and hosted via Lovable.
-- Want to keep editing? Open the project in the [Lovable editor](https://lovable.dev/projects/70726183-1b87-49bd-a383-bbccd3314ed1).
-
----
-
-Built with [Lovable](https://lovable.dev).
