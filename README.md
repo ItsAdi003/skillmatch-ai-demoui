@@ -1,341 +1,89 @@
-# Skill Match AI
+# SkillMatch AI
 
-Build an AI Resume Screening Platform
+A production-ready AI Resume Screening, Job Recommendation, Internship Recommendation and Career Learning Platform built as a final-year engineering project.
 
-Create a modern, responsive, premium-looking web application called SkillMatch AI.
+**Live Demo:** [skillmatch-ai-demoui.lovable.app](https://skillmatch-ai-demoui.lovable.app)
 
-Purpose: An AI-powered Resume Screening, Job Recommendation, Internship Recommendation and Career Learning Platform.
+---
 
-The UI should look like a real SaaS product (similar to Linear, Notion, Stripe or Vercel) with clean layouts, rounded cards, subtle shadows, blue-purple accent colors and smooth animations.
+## What it does
 
-General Requirements
+SkillMatch AI helps candidates, employers and admins make better hiring decisions using AI-powered matching and skill-gap analysis.
 
-Fully responsive
+- **Candidates** upload a resume, get an AI score, see ranked jobs and internships, identify skill gaps, and follow a weekly learning roadmap.
+- **Employers** post jobs, view AI-ranked candidates, and see an AI-organized resume view for every applicant.
+- **Admins** monitor platform activity, verify users and employers, and review reported accounts.
 
-Modern React dashboard style
+---
 
-Light & Dark mode support
+## Features
 
-Clean typography
+### Candidate Experience
+- Semantic resume upload with drag-and-drop
+- AI resume analysis: score, skills, strengths, weaknesses and suggestions
+- Ranked job and internship recommendations with match percentages
+- Skill gap analysis with priority learning order
+- 4-week interactive learning roadmap
+- Application pipeline tracking
 
-Professional color palette
+### Employer Experience
+- Hiring dashboard with applicant funnel charts
+- Create and manage job postings
+- AI-ranked candidate shortlists
+- AI-organized resume view based on a specific job description
 
-Dummy/mock data only (no backend required)
+### Admin Experience
+- Platform analytics and growth charts
+- User, candidate and employer management
+- Employer verification and reported accounts
 
-Beautiful loading states and empty states
+---
 
-Interactive charts and progress bars where appropriate
+## Tech Stack
 
-Landing Page
+- **Framework:** React 19 + TanStack Start / TanStack Router
+- **Styling:** Tailwind CSS v4 with custom design tokens
+- **UI Components:** shadcn/ui
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **Build Tool:** Vite 7
+- **Generated with:** [Lovable](https://lovable.dev)
 
-Include:
+---
 
-Hero section
+## Project Structure
 
-Tagline:
-"AI-powered Resume Screening Beyond Keyword Matching."
+```text
+src/
+  routes/           # All pages (landing, auth, candidate, employer, admin)
+  components/       # Reusable UI components and dashboard shell
+  lib/              # Mock data, theme, utilities
+  styles.css        # Global design tokens and animations
+```
 
-CTA buttons:
+---
 
-Get Started
+## Getting Started
 
-Explore Jobs
-
-Features section
-
-How it Works section
-
-Testimonials
-
-Pricing cards (Free / Premium)
-
-Footer
-
-Authentication
-
-Create modern pages for:
-
-Login
-
-Register
-
-Allow selecting account type:
-
-Candidate
-
-Employer
-
-Admin
-
-Candidate Dashboard
-
-Create a beautiful dashboard containing:
-
-Dashboard Overview
-
-Cards for:
-
-Resume Score
-
-Job Matches
-
-Internship Matches
-
-Skill Gap
-
-Applications
-
-Charts showing:
-
-Application status
-
-Skill progress
-
-Resume Upload
-
-Drag & Drop upload area
-
-Uploaded resume preview
-
-Resume parsing animation
-
-AI analysis progress
-
-Resume Analysis
-
-Display:
-
-Resume Score
-
-Technical Skills
-
-Soft Skills
-
-Education
-
-Projects
-
-Certifications
-
-Strengths
-
-Weaknesses
-
-Show AI suggestions inside elegant cards.
-
-Job Recommendations
-
-Display cards with:
-
-Company
-
-Job title
-
-Match %
-
-Salary/Stipend
-
-Skills matched
-
-Missing skills
-
-Buttons:
-
-Apply
-
-Save
-
-View Details
-
-Internship Recommendations
-
-Same UI as Jobs.
-
-Skill Gap Analysis
-
-Display:
-
-Required Skills
-
-Existing Skills
-
-Missing Skills
-
-Priority to Learn
-
-Include circular progress indicators.
-
-Learning Roadmap
-
-Timeline UI:
-
-Week 1
-
-Learn SQL
-
-Week 2
-
-Learn REST APIs
-
-Week 3
-
-Build CRUD Project
-
-Week 4
-
-Deploy on Cloud
-
-Display completion percentages.
-
-Employer Dashboard
-
-Dashboard cards:
-
-Active Jobs
-
-Total Applicants
-
-Shortlisted
-
-Interviews
-
-Create Job
-
-Beautiful form including:
-
-Job Title
-
-Description
-
-Required Skills
-
-Preferred Skills
-
-Experience
-
-Salary
-
-Location
-
-Candidate Ranking
-
-Display candidate cards sorted by AI Match Score.
-
-Each card contains:
-
-Profile picture
-
-Name
-
-Match %
-
-Skills
-
-Experience
-
-Resume Score
-
-Clicking a candidate opens a detailed profile.
-
-AI Resume View
-
-Instead of showing a normal resume, create an "AI Organized Resume".
-
-Highlight:
-
-Relevant Skills
-
-Relevant Projects
-
-Relevant Experience
-
-Everything unrelated should appear lower.
-
-Include a label:
-
-"AI Organized View based on Job Description."
-
-Admin Dashboard
-
-Cards:
-
-Total Users
-
-Candidates
-
-Employers
-
-Reports
-
-Suspicious Accounts
-
-Pages:
-
-User Management
-
-Employer Verification
-
-Candidate Verification
-
-Reported Accounts
-
-Analytics
-
-Platform Statistics
-
-Use modern data tables.
-
-Navigation
-
-Top navigation for public pages.
-
-Sidebar navigation inside dashboards.
-
-Icons should be minimal and professional.
-
-Design Style
-
-Use:
-
-Glassmorphism where appropriate
-
-Rounded cards
-
-Soft shadows
-
-Gradient highlights
-
-Smooth hover animations
-
-Professional illustrations
-
-Clean spacing
-
-Consistent icons
-
-The UI should look like a production-ready SaaS product that could be presented as a Final Year Engineering Project.
-
-Generate all pages with navigation already connected using mock data.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://skillmatch-ai-demoui.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/70726183-1b87-49bd-a383-bbccd3314ed1).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+You need [Node.js](https://nodejs.org) installed. Then run:
 
 ```sh
 git clone <this-repository-url>
 cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+The app will open at `http://localhost:8080`.
+
+---
+
+## Notes
+
+- This project uses mock/dummy data only. No real backend or database is required to run it locally.
+- The live demo is deployed and hosted via Lovable.
+- Want to keep editing? Open the project in the [Lovable editor](https://lovable.dev/projects/70726183-1b87-49bd-a383-bbccd3314ed1).
+
+---
+
+Built with [Lovable](https://lovable.dev).
